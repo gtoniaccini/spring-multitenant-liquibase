@@ -9,7 +9,7 @@ The project is intentionally split into two parts:
 - a reusable multitenancy core that can be copied into another service
 - a small Customer domain used only to prove that tenant isolation works end to end
 
-## What the demo shows
+## How it works
 
 - A master database (`multitenant_master`) holds a `public.tenants` registry with the connection details for every tenant.
 - Each tenant has its own dedicated PostgreSQL database (`tenant_alpha`, `tenant_beta`), created via a Docker init script.
@@ -31,7 +31,7 @@ The project is intentionally split into two parts:
 ## Project scope
 
 - Master database: `multitenant_master` with table `public.tenants`
-- Two demo tenants: `tenant_alpha` and `tenant_beta`
+- Two example tenants: `tenant_alpha` and `tenant_beta`
 - One business entity: `Customer`
 - One tenant-aware REST API under `/api/customers`
 
