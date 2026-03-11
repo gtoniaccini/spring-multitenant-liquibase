@@ -4,8 +4,6 @@
 ![Java](https://img.shields.io/badge/Java-21-blue)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-brightgreen)
 ![Liquibase](https://img.shields.io/badge/Liquibase-4.29-lightgrey)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)
-![Docker](https://img.shields.io/badge/Docker-24-blue)
 
 This project demonstrates **database-per-tenant** multitenancy in Spring Boot using PostgreSQL, a master tenant registry and Liquibase migrations applied to each tenant database on startup.
 
