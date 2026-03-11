@@ -1,0 +1,99 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-tenants-table
+      author: gtoniaccini
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: tenants
+            columns:
+              - column:
+                  name: tenant_id
+                  type: varchar(100)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: namespace_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: url
+                  type: varchar(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: driver_class_name
+                  type: varchar(200)
+              - column:
+                  name: active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: seed-demo-tenants
+      author: gtoniaccini
+      changes:
+        - insert:
+            schemaName: public
+            tableName: tenants
+            columns:
+              - column:
+                  name: tenant_id
+                  value: tenant_alpha
+              - column:
+                  name: namespace_name
+                  value: tenant_alpha
+              - column:
+                  name: url
+                  value: jdbc:postgresql://localhost:5432/tenant_alpha
+              - column:
+                  name: username
+                  value: postgres
+              - column:
+                  name: password
+                  value: postgres
+              - column:
+                  name: driver_class_name
+                  value: org.postgresql.Driver
+              - column:
+                  name: active
+                  valueBoolean: true
+        - insert:
+            schemaName: public
+            tableName: tenants
+            columns:
+              - column:
+                  name: tenant_id
+                  value: tenant_beta
+              - column:
+                  name: namespace_name
+                  value: tenant_beta
+              - column:
+                  name: url
+                  value: jdbc:postgresql://localhost:5432/tenant_beta
+              - column:
+                  name: username
+                  value: postgres
+              - column:
+                  name: password
+                  value: postgres
+              - column:
+                  name: driver_class_name
+                  value: org.postgresql.Driver
+              - column:
+                  name: active
+                  valueBoolean: true

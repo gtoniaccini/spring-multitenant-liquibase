@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/multitenant_master
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-public.yaml
+
+server:
+  error:
+    include-message: always
+
+app:
+  tenant:
+    header-name: X-Tenant-ID
+    public-schema: public
+    protected-path-prefix: /api/
+    tenant-changelog: db/changelog/db.changelog-tenant.yaml
